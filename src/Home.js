@@ -32,7 +32,7 @@ export default function Home() {
       text: "Please wait while we process your request.",
       allowOutsideClick: false,
       didOpen: () => {
-        Swal.showLoading(); // Show loading spinner
+        Swal.showLoading(); 
       },
     });
     e.preventDefault();
@@ -201,6 +201,9 @@ export default function Home() {
           </a>
           <a href="https://github.com/arjunjaver">
             <i className="bx bxl-github"></i>
+          </a>
+          <a href="mailto:arjunjaver86@gmail.com">
+            <i class='bx bxl-gmail'></i>
           </a>
           <span className="animate" style={{ "--i": 6 }}></span>
         </div>
