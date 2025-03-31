@@ -541,15 +541,12 @@ export default function Home() {
               <div className="projects-content">
                 <img src={ecommerceImage} />
                 <div className="layer">
-                  <h3>Ecommerce App</h3>
+                  <h3>StoreCraft</h3>
                   <p>
-                    The app features a products page displaying all products
-                    with update and delete options, along with filters. A
-                    separate management page allows users to add products,
-                    categories, and brands, displaying categories and brands
-                    with update and delete buttons.
+                  A MERN-based product management system that allows CRUD operations on products,
+                  categories, and brands, with filtering features.
                   </p>
-                  <a href="https://e-commerce-mern-stack-app.vercel.app">
+                  <a href="https://store-craft-mern-stack-app.vercel.app">
                     <i className="bx bx-link-external"></i>
                   </a>
                 </div>
