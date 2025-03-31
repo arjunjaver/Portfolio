@@ -533,7 +533,7 @@ export default function Home() {
         <div className="projects-row">
           <div className="projects-column">
             <h3 className="title">
-              Ecommerce
+              StoreCraft
               <span className="animate scroll" style={{ "--i": 2 }}></span>
             </h3>
 
