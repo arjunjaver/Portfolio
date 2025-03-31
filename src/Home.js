@@ -27,6 +27,14 @@ export default function Home() {
   };
 
   const handleSubmit = async (e) => {
+    Swal.fire({
+      title: "Submitting...",
+      text: "Please wait while we process your request.",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading(); // Show loading spinner
+      },
+    });
     e.preventDefault();
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -637,7 +645,7 @@ export default function Home() {
           <div className="input-box">
             <div className="input-field">
               <input
-                type="text"
+                type="number"
                 name="mobile"
                 placeholder="Mobile Number"
                 required
