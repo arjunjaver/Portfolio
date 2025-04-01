@@ -546,7 +546,7 @@ export default function Home() {
                   A MERN-based product management system that allows CRUD operations on products,
                   categories, and brands, with filtering features.
                   </p>
-                  <a href="https://store-craft-mern-stack-app.vercel.app">
+                  <a href="https://store-craft-mern-stack-app.vercel.app" target="_blank" rel="noopener noreferrer">
                     <i className="bx bx-link-external"></i>
                   </a>
                 </div>
@@ -572,7 +572,7 @@ export default function Home() {
                     sections like general, business, sports, entertainment,
                     science and technology for easy navigation.
                   </p>
-                  <a href="https://newsify-indol.vercel.app">
+                  <a href="https://newsify-indol.vercel.app" target="_blank" rel="noopener noreferrer">
                     <i className="bx bx-link-external"></i>
                   </a>
                 </div>
@@ -597,7 +597,7 @@ export default function Home() {
                     The app is a quiz platform that includes a timer for each
                     quiz and displays the final result after completion.
                   </p>
-                  <a href="https://quiz-app-tau-rose-72.vercel.app">
+                  <a href="https://quiz-app-tau-rose-72.vercel.app" target="_blank" rel="noopener noreferrer">
                     <i className="bx bx-link-external"></i>
                   </a>
                 </div>
