@@ -896,7 +896,7 @@ body.swal2-shown {
 
 .animate.scroll {
     transition: 1s ease;
-    transition-delay: calc(.3s / var(--i));
+    transition-delay: calc(.1s / var(--i));
     animation: none;
 }
 
@@ -915,7 +915,7 @@ section:nth-child(odd) .animate.scroll,
 .projects.show-animate .animate.scroll,
 .contact.show-animate .animate.scroll,
 .footer.show-animate .animate.scroll {
-    transition-delay: calc(.3s * var(--i));
+    transition-delay: calc(.1s * var(--i));
     width: 0;
 }
 
