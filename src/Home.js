@@ -178,7 +178,7 @@ export default function Home() {
   return (
     <div>
       <header className="header">
-        <a href="#" className="logo">
+        <a href="/" className="logo">
           Portfolio<span className="animate" style={{ "--i": 1 }}></span>
         </a>
 
