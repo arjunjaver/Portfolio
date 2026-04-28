@@ -668,15 +668,14 @@ span {
     transform: translateX(-50%);
 }
 
-.projects .projects-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 5rem;
+.projects-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 100px 20px;
 }
 
-.projects-row .projects-column {
-    flex: 1;
+.projects-column {
+  width: 100%; /* remove any fixed width if you added earlier */
 }
 
 .projects-column .title {

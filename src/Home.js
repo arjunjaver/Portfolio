@@ -7,6 +7,8 @@ import aboutImage from "./images/about.jpeg";
 import quizImage from "./images/onlineQuiz.webp";
 import ecommerceImage from "./images/ecommerce marketing.webp";
 import newsifyImage from "./images/newsApp.jpg";
+import financeTrackerImage from "./images/finance-tracking.png"
+import schoolHubImage from './images/schoolhub.webp'
 import resume from "./images/Arjun_Javer_Resume.pdf";
 
 export default function Home() {
@@ -137,6 +139,40 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const projects = [
+  {
+    title: "StoreCraft - MERN",
+    image: ecommerceImage,
+    desc: "A MERN-based product management system with CRUD operations and filtering.",
+    link: "https://store-craft-mern-stack-app.vercel.app",
+  },
+  {
+    title: "Newsify - React",
+    image: newsifyImage,
+    desc: "News platform with categorized sections like business, sports, and tech.",
+    link: "https://newsify-indol.vercel.app",
+  },
+  {
+    title: "Quiz App - React",
+    image: quizImage,
+    desc: "Quiz platform with timer and result display.",
+    link: "https://quiz-app-tau-rose-72.vercel.app",
+  },
+  {
+    title: "Finance Tracker - Angular",
+    image: financeTrackerImage,
+    desc: "A web application that helps users track income, expenses, and overall financial balance, with simple categorization and visual insights for better money management.",
+    link: "https://personal-finance-tracker-one-eosin.vercel.app",
+  },
+  {
+    title: "School Hub - Next.js",
+    image: schoolHubImage,
+    desc: "A simple Next.js + MySQL(freesqldatabase) + Cloudinary application to manage schools. It allows you to add, view, and delete schools with image uploads stored in Cloudinary.",
+    link: "https://school-hub-flax.vercel.app",
+  },
+  
+];
 
   return (
     <div>
@@ -525,89 +561,31 @@ export default function Home() {
       </section>
 
       <section className="projects" id="projects">
-        <h2 className="heading">
-          My <span>Projects</span>
-          <span className="animate scroll" style={{ "--i": 1 }}></span>
-        </h2>
+  <h2 className="heading">
+    My <span>Projects</span>
+  </h2>
 
-        <div className="projects-row">
-          <div className="projects-column">
-            <h3 className="title">
-              StoreCraft
-              <span className="animate scroll" style={{ "--i": 2 }}></span>
-            </h3>
+  <div className="projects-row">
+    {projects.map((project, index) => (
+      <div className="projects-column" key={index}>
+        <h3 className="title">{project.title}</h3>
 
-            <div className="projects-box">
-              <div className="projects-content">
-                <img src={ecommerceImage} />
-                <div className="layer">
-                  <h3>StoreCraft</h3>
-                  <p>
-                  A MERN-based product management system that allows CRUD operations on products,
-                  categories, and brands, with filtering features.
-                  </p>
-                  <a href="https://store-craft-mern-stack-app.vercel.app" target="_blank" rel="noopener noreferrer">
-                    <i className="bx bx-link-external"></i>
-                  </a>
-                </div>
-              </div>
-
-              <span className="animate scroll" style={{ "--i": 3 }}></span>
-            </div>
-          </div>
-
-          <div className="projects-column">
-            <h3 className="title">
-              Newsify
-              <span className="animate scroll" style={{ "--i": 2 }}></span>
-            </h3>
-
-            <div className="projects-box">
-              <div className="projects-content">
-                <img src={newsifyImage} />
-                <div className="layer">
-                  <h3>Newsify App</h3>
-                  <p>
-                    The app is a news platform that categorizes news into
-                    sections like general, business, sports, entertainment,
-                    science and technology for easy navigation.
-                  </p>
-                  <a href="https://newsify-indol.vercel.app" target="_blank" rel="noopener noreferrer">
-                    <i className="bx bx-link-external"></i>
-                  </a>
-                </div>
-              </div>
-
-              <span className="animate scroll" style={{ "--i": 3 }}></span>
-            </div>
-          </div>
-
-          <div className="projects-column">
-            <h3 className="title">
-              Quiz
-              <span className="animate scroll" style={{ "--i": 2 }}></span>
-            </h3>
-
-            <div className="projects-box">
-              <div className="projects-content">
-                <img src={quizImage} />
-                <div className="layer">
-                  <h3>Quiz App</h3>
-                  <p>
-                    The app is a quiz platform that includes a timer for each
-                    quiz and displays the final result after completion.
-                  </p>
-                  <a href="https://quiz-app-tau-rose-72.vercel.app" target="_blank" rel="noopener noreferrer">
-                    <i className="bx bx-link-external"></i>
-                  </a>
-                </div>
-              </div>
-
-              <span className="animate scroll" style={{ "--i": 3 }}></span>
+        <div className="projects-box">
+          <div className="projects-content">
+            <img src={project.image} alt={project.title} />
+            <div className="layer">
+              <h3>{project.title}</h3>
+              <p>{project.desc}</p>
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                <i className="bx bx-link-external"></i>
+              </a>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
       <section className="contact" id="contact">
         <h2 className="heading">
