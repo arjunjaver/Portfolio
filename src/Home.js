@@ -1,14 +1,14 @@
 import React from "react";
 import "./Home.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import homeImage from "./images/home.jpeg";
 import aboutImage from "./images/about.jpeg";
 import quizImage from "./images/onlineQuiz.webp";
 import ecommerceImage from "./images/ecommerce marketing.webp";
 import newsifyImage from "./images/newsApp.jpg";
-import financeTrackerImage from "./images/finance-tracking.png"
-import schoolHubImage from './images/schoolhub.webp'
+import financeTrackerImage from "./images/finance-tracking.png";
+import schoolHubImage from "./images/schoolhub.webp";
 import resume from "./images/Arjun_Javer_Resume.pdf";
 
 export default function Home() {
@@ -20,11 +20,10 @@ export default function Home() {
     message: "",
   });
 
-
   const handleChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
-      [e.target.name]: e.target.value, 
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -34,43 +33,43 @@ export default function Home() {
       text: "Please wait while we process your request.",
       allowOutsideClick: false,
       didOpen: () => {
-        Swal.showLoading(); 
+        Swal.showLoading();
       },
     });
     e.preventDefault();
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const mobileRegex = /^[0-9]{10}$/; 
+    const mobileRegex = /^[0-9]{10}$/;
 
-   
     if (!emailRegex.test(formData.email)) {
       Swal.fire({
         icon: "error",
         title: "Invalid Email",
         text: "Please enter a valid email address.",
-        timer: 3000, 
-        
+        timer: 3000,
       });
       return;
     }
-  
+
     if (!mobileRegex.test(formData.mobile)) {
       Swal.fire({
         icon: "error",
         title: "Invalid Mobile Number",
         text: "Please enter a valid 10-digit mobile number.",
-        timer: 3000, 
-        
+        timer: 3000,
       });
       return;
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        },
+      );
 
       const data = await response.json();
 
@@ -79,18 +78,22 @@ export default function Home() {
           icon: "success",
           title: "Success!",
           text: data.message,
-          timer: 3000, 
-          
+          timer: 3000,
         });
-  
-        setFormData({ fullName: "", email: "", mobile: "", subject: "", message: "" });
+
+        setFormData({
+          fullName: "",
+          email: "",
+          mobile: "",
+          subject: "",
+          message: "",
+        });
       } else {
         Swal.fire({
           icon: "error",
           title: "Error",
           text: data.message || "Something went wrong",
-          timer: 3000, 
-          
+          timer: 3000,
         });
       }
     } catch (error) {
@@ -98,8 +101,7 @@ export default function Home() {
         icon: "error",
         title: "Server Error",
         text: "Please try again later.",
-        timer: 3000, 
-        
+        timer: 3000,
       });
     }
   };
@@ -141,38 +143,37 @@ export default function Home() {
   }, []);
 
   const projects = [
-  {
-    title: "StoreCraft - MERN",
-    image: ecommerceImage,
-    desc: "A MERN-based product management system with CRUD operations and filtering.",
-    link: "https://store-craft-mern-stack-app.vercel.app",
-  },
-  {
-    title: "Newsify - React",
-    image: newsifyImage,
-    desc: "News platform with categorized sections like business, sports, and tech.",
-    link: "https://newsify-indol.vercel.app",
-  },
-  {
-    title: "Quiz App - React",
-    image: quizImage,
-    desc: "Quiz platform with timer and result display.",
-    link: "https://quiz-app-tau-rose-72.vercel.app",
-  },
-  {
-    title: "Finance Tracker - Angular",
-    image: financeTrackerImage,
-    desc: "A web application that helps users track income, expenses, and overall financial balance, with simple categorization and visual insights for better money management.",
-    link: "https://personal-finance-tracker-one-eosin.vercel.app",
-  },
-  {
-    title: "School Hub - Next.js",
-    image: schoolHubImage,
-    desc: "A simple Next.js + MySQL(freesqldatabase) + Cloudinary application to manage schools. It allows you to add, view, and delete schools with image uploads stored in Cloudinary.",
-    link: "https://school-hub-flax.vercel.app",
-  },
-  
-];
+    {
+      title: "StoreCraft - MERN",
+      image: ecommerceImage,
+      desc: "A MERN-based product management system with CRUD operations and filtering.",
+      link: "https://store-craft-mern-stack-app.vercel.app",
+    },
+    {
+      title: "Newsify - React",
+      image: newsifyImage,
+      desc: "News platform with categorized sections like business, sports, and tech.",
+      link: "https://newsify-indol.vercel.app",
+    },
+    {
+      title: "Quiz App - React",
+      image: quizImage,
+      desc: "Quiz platform with timer and result display.",
+      link: "https://quiz-app-tau-rose-72.vercel.app",
+    },
+    {
+      title: "Finance Tracker - Angular",
+      image: financeTrackerImage,
+      desc: "A web application that helps users track income, expenses, and overall financial balance, with simple categorization and visual insights for better money management.",
+      link: "https://personal-finance-tracker-one-eosin.vercel.app",
+    },
+    {
+      title: "School Hub - Next.js",
+      image: schoolHubImage,
+      desc: "A simple Next.js + MySQL(freesqldatabase) + Cloudinary application to manage schools. It allows you to add, view, and delete schools with image uploads stored in Cloudinary.",
+      link: "https://school-hub-flax.vercel.app",
+    },
+  ];
 
   return (
     <div>
@@ -239,7 +240,7 @@ export default function Home() {
             <i className="bx bxl-github"></i>
           </a>
           <a href="mailto:arjunjaver86@gmail.com">
-            <i class='bx bxl-gmail'></i>
+            <i class="bx bxl-gmail"></i>
           </a>
           <span className="animate" style={{ "--i": 6 }}></span>
         </div>
@@ -561,31 +562,35 @@ export default function Home() {
       </section>
 
       <section className="projects" id="projects">
-  <h2 className="heading">
-    My <span>Projects</span>
-  </h2>
+        <h2 className="heading">
+          My <span>Projects</span>
+        </h2>
 
-  <div className="projects-row">
-    {projects.map((project, index) => (
-      <div className="projects-column" key={index}>
-        <h3 className="title">{project.title}</h3>
+        <div className="projects-row">
+          {projects.map((project, index) => (
+            <div className="projects-column" key={index}>
+              <h3 className="title">{project.title}</h3>
 
-        <div className="projects-box">
-          <div className="projects-content">
-            <img src={project.image} alt={project.title} />
-            <div className="layer">
-              <h3>{project.title}</h3>
-              <p>{project.desc}</p>
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                <i className="bx bx-link-external"></i>
-              </a>
+              <div className="projects-box">
+                <div className="projects-content">
+                  <img src={project.image} alt={project.title} />
+                  <div className="layer">
+                    <h3>{project.title}</h3>
+                    <p>{project.desc}</p>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="bx bx-link-external"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
 
       <section className="contact" id="contact">
         <h2 className="heading">
@@ -670,7 +675,6 @@ export default function Home() {
             <span className="animate scroll" style={{ "--i": 9 }}></span>
           </div>
         </form>
-        
       </section>
     </div>
   );
